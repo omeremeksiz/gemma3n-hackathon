@@ -4,8 +4,8 @@ This repository organizes our team’s research and development work for the Gem
 ## Sections
 
 - **Project Ideas**  
-  - Idea 1: (brief description)  
-  - Idea 2: (brief description)
+  - Medicine Assistant: An AI-powered medicine explainer and advisor application that helps users understand their medications and use them safely.  
+  - Food Calorie Estimator: An AI-powered app that allows users to take a photo of their meal and get an estimate of the calories, portion size, and nutrition breakdown.
 
 - **Tasks**  
   - Define problem statement  
