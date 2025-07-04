@@ -1,6 +1,13 @@
-from google import generativeai as genai
+import argparse
 import json
+import os
 import re
+
+import dotenv
+from google import generativeai as genai
+
+dotenv.load_dotenv()
+
 
 def estimate_food_calories(image_path: str):
     """
@@ -8,7 +15,7 @@ def estimate_food_calories(image_path: str):
     """
 
     # Configure once with your API key
-    genai.configure(api_key="AIzaSyAp_6vVVulnkUc15Wnlt9RpaetDWBresW0")
+    genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
     # create a generative model
     model = genai.GenerativeModel("gemma-3-27b-it")
@@ -55,5 +62,11 @@ def estimate_food_calories(image_path: str):
 
 
 if __name__ == "__main__":
-    image_path = "/Users/omeremeksiz/Desktop/gemma3n-hackathon/test_images/kuru.jpg"
+    parser = argparse.ArgumentParser(
+        description="Estimate food calories from an image using Gemma 3."
+    )
+    parser.add_argument("image_path", type=str, help="Path to the food image file")
+    args = parser.parse_args()
+
+    image_path = args.image_path
     estimate_food_calories(image_path)
